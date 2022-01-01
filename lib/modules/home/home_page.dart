@@ -44,6 +44,31 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+      bottomNavigationBar: Container(
+        height: 90,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.home,
+                  color: AppColors.primary,
+                )),
+            Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5),
+                  color: AppColors.primary),
+              child: Icon(Icons.add),
+            ),
+            IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.description_outlined, color: AppColors.body)),
+          ],
+        ),
+      ),
     );
   }
 }
