@@ -20,7 +20,7 @@ class UserModel{
   };
 
   //Converte a classe em json
-  String toJson()=> jsonEncode(toMap);
+  String toJson()=> jsonEncode(toMap());
 
 
 }

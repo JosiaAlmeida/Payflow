@@ -5,18 +5,19 @@ import 'package:payflow/shared/auth/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthController {
-  var isAuthenticated = false;
+  // var isAuthenticated = false;
   UserModel? _user;
 
   UserModel get user => _user!; // Nao pode ser chamada sem authenticacao
 
   void setUser(BuildContext context, UserModel? user) {
     if (user != null) {
-      isAuthenticated = true;
+      // isAuthenticated = true;
+      saveUser(user);
       _user = user;
       Navigator.pushReplacementNamed(context, '/home');
     } else {
-      isAuthenticated = false;
+      // isAuthenticated = false;
       Navigator.pushReplacementNamed(context, '/login');
     }
   }
@@ -31,6 +32,7 @@ class AuthController {
   //Pegando dados do usuario
   Future<void> currentUser(BuildContext context) async {
     final instance = await SharedPreferences.getInstance();
+    await Future.delayed(Duration(seconds: 3)); // Adicionando delay
     //Pegando os dados
     if (instance.containsKey("user")) {
       final json = instance.get("user") as String;
