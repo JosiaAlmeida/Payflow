@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:payflow/shared/thems/app_colors.dart';
 import 'package:payflow/shared/thems/app_images.dart';
 import 'package:payflow/shared/thems/app_text_style.dart';
@@ -34,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Image.asset(
                   AppImages.person,
                   width: 208,
-                  height: 373,
+                  height: size.height * 0.36,
                 )),
             Positioned(
               bottom: size.height * 0.05,
@@ -47,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                   Image.asset(AppImages.logomini),
                   Padding(
                     padding:
-                        const EdgeInsets.only(top: 30, left: 70, right: 70),
+                        const EdgeInsets.only(left: 60, right: 60),
                     child: Text(
                       "Organize seus boletos em um so lugar!",
                       style: AppTextStyles.titleHome,
@@ -56,9 +57,21 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Padding(
                       padding: EdgeInsets.only(left: 40, right: 40, top: 40),
-                      child: SocialLoginButton(onTap: (){
-                        print("Clicou");
-                      },))
+                      child: SocialLoginButton(
+                        onTap: () async {
+                          GoogleSignIn _googleSignIn = GoogleSignIn(
+                            scopes: [
+                              'email',
+                            ],
+                          );//Verificando se esta conectando
+                          try {
+                            final response = await _googleSignIn.signIn();
+                            print(response);
+                          } catch (error) {
+                            print(error);
+                          }
+                        },
+                      ))
                 ],
               ),
             )
