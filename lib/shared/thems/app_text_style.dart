@@ -46,7 +46,7 @@ class AppTextStyles{
   static final buttonPrimary = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,
-    color: AppColors.heading
+    color: AppColors.primary
   );
   static final buttonHeading = GoogleFonts.inter(
     fontSize: 15,
@@ -65,12 +65,12 @@ class AppTextStyles{
   );
   static final buttonBoldPrimary = GoogleFonts.inter(
     fontSize: 15,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w600,
     color: AppColors.primary
   );
   static final buttonBoldHeading = GoogleFonts.inter(
     fontSize: 15,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w600,
     color: AppColors.heading
   );
   static final captionShape = GoogleFonts.lexendDeca(
