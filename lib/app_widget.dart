@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:payflow/modules/barcode_scanner/barcode_scanner_page.dart';
 import 'package:payflow/modules/splash/splash_page.dart';
 
@@ -8,7 +9,14 @@ import 'modules/login/login_page.dart';
 import 'shared/thems/app_colors.dart';
 
 class AppWidget extends StatelessWidget {
-  const AppWidget({Key? key}) : super(key: key);
+  AppWidget(){
+    SystemChrome.setPreferredOrientations(
+      [
+        DeviceOrientation.portraitDown,
+        DeviceOrientation.portraitUp
+      ]
+    ); // Bloqueando rotacao de tela
+  }
 
   @override
   Widget build(BuildContext context) {
